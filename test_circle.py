@@ -12,3 +12,4 @@ class TestcircleArea(unittest.TestCase):
         self.assertAlmostEqual(circle_area(0), 3) # on purpose so it fails
         self.assertAlmostEqual(circle_area(2.1), pi * 2.1 ** 2)
         self.assertAlmostEqual(circle_area(10), pi * 10 ** 2)
+        self.assertAlmostEqual(circle_area(3), pi * 3 ** 2)
