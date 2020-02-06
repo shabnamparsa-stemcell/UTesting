@@ -1,4 +1,6 @@
 import unittest
+from teamcity import is_running_under_teamcity
+from teamcity.unittestpy import TeamcityTestRunner
 
 from circles import circle_area
 
@@ -17,3 +19,12 @@ class TestcircleArea(unittest.TestCase):
     def test_area1(self):
         # test areas when radious is >=0
         self.assertAlmostEqual(circle_area(0), 3) # on purpose so it fails
+
+
+if __name__ == '__main__':
+    if is_running_under_teamcity():
+        runner = TeamcityTestRunner()
+    else:
+        runner = unittest.TextTestRunner()
+    unittest.main(testRunner=runner)
+
